@@ -15,12 +15,12 @@ logger = logging.getLogger(__name__)
 class MultiChannelForwarder:
     def __init__(self):
         # Get from environment variables
-        self.api_id = int(os.getenv('API_ID', '29288825'))
-        self.api_hash = os.getenv('API_HASH', 'aef990ed594ffffae5891bb46d5d24a2')
+        self.api_id = int(os.getenv('API_ID', ''))
+        self.api_hash = os.getenv('API_HASH', '')
         self.source_channel = os.getenv('SOURCE_CHANNEL', 'jemlacasa99')
         
         # Multiple target channels (comma-separated)
-        target_channels_str = os.getenv('TARGET_CHANNELS', 'sport_jmla,testychanne,lm3alem_l9ri3a')
+        target_channels_str = os.getenv('TARGET_CHANNELS', 'sport_jmla,channel1,channel2')
         self.target_channels = [ch.strip() for ch in target_channels_str.split(',') if ch.strip()]
         
         if not self.api_id or not self.api_hash:

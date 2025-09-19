@@ -26,8 +26,8 @@ class MultiChannelPoster:
     def __init__(self):
         self.api_id = int(os.getenv('API_ID', '29288825'))
         self.api_hash = os.getenv('API_HASH', 'aef990ed594ffffae5891bb46d5d24a2')
-        self.source_channel = os.getenv('SOURCE_CHANNEL', 'jemlacasa99')
-        target_channels_str = os.getenv('TARGET_CHANNELS', 'sport_jmla,testychanne,lm3alem_l9ri3a')
+        self.source_channel = os.getenv('SOURCE_CHANNEL', 'sport_jmla')
+        target_channels_str = os.getenv('TARGET_CHANNELS', 'jemlacasa99,testychanne,lm3alem_l9ri3a')
         self.target_channels = [ch.strip() for ch in target_channels_str.split(',') if ch.strip()]
 
         if not self.api_id or not self.api_hash:

@@ -81,7 +81,12 @@ class MultiChannelPoster:
                 if msg.media:
                     with tempfile.NamedTemporaryFile(delete=False) as tmp:
                         path = await self.client.download_media(msg, file=tmp.name)
-                    await self.client.send_file(target, path, caption=(msg.text or ""))
+                    await self.client.send_file(
+                     target,
+                     path,
+                     caption=(msg.text or ""),
+                     force_document=False
+                     )
                     os.remove(path)
                 else:
                     await self.client.send_message(target, msg.text or "")

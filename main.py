@@ -78,12 +78,25 @@ class MultiChannelPoster:
 
         for i, target in enumerate(self.target_entities, 1):
             try:
-                if msg.media:
+                if msg.photo:
+                    # Use Telegram's native photo sending
+                    await self.client.send_file(
+                        target,
+                        msg.media,
+                        caption=msg.text or "",
+                        force_document=False
+                    )
+                elif msg.media:
+                    # For other media types like videos, etc.
                     with tempfile.NamedTemporaryFile(delete=False) as tmp:
-                          path = await self.client.download_media(msg, file=tmp.name)
-                    await self.client.send_file(target, path, caption=(msg.text or ""), force_document=False)
-                        
-        os.remove(path)
+                        path = await self.client.download_media(msg, file=tmp.name)
+                    await self.client.send_file(
+                        target,
+                        path,
+                        caption=(msg.text or ""),
+                        force_document=False
+                    )
+                    os.remove(path)
                 else:
                     await self.client.send_message(target, msg.text or "")
 

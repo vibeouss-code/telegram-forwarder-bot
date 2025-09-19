@@ -20,7 +20,7 @@ class MultiChannelForwarder:
         self.source_channel = os.getenv('SOURCE_CHANNEL', 'jemlacasa99')
         
         # Multiple target channels (comma-separated)
-        target_channels_str = os.getenv('TARGET_CHANNELS', 'sport_jmla,channel1,channel2')
+        target_channels_str = os.getenv('TARGET_CHANNELS', 'channel1,channel2,channel3')
         self.target_channels = [ch.strip() for ch in target_channels_str.split(',') if ch.strip()]
         
         if not self.api_id or not self.api_hash:

@@ -17,7 +17,7 @@ class MultiChannelPoster:
         # Get from environment variables
         self.api_id = int(os.getenv('API_ID', '0'))
         self.api_hash = os.getenv('API_HASH', '')
-        self.source_channel = os.getenv('SOURCE_CHANNEL', 'sport_jmla')
+        self.source_channel = os.getenv('SOURCE_CHANNEL', 'testy_jemla')
         
         # Multiple target channels (comma-separated)
         target_channels_str = os.getenv('TARGET_CHANNELS', '')
@@ -143,8 +143,8 @@ async def main():
     print("🤖 MULTI-CHANNEL TELEGRAM POSTER - RAILWAY EDITION")
     print("=" * 70)
     print("📋 Your current settings:")
-    print(f"   • Source: {os.getenv('SOURCE_CHANNEL', 'Not set')}")
-    print(f"   • Targets: {os.getenv('TARGET_CHANNELS', 'Not set')}")
+    print(f"   • Source: {os.getenv('SOURCE_CHANNEL', 'testy_jemla')}")
+    print(f"   • Targets: {os.getenv('TARGET_CHANNELS', 'jemla_clothing')}")
     print("=" * 70)
     print("✨ Posts will appear as original content (no forwarding labels)")
     print("=" * 70)

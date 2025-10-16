@@ -20,7 +20,7 @@ class MultiChannelPoster:
         self.source_channel = os.getenv('SOURCE_CHANNEL', 'testy_jemla')
         
         # Multiple target channels (comma-separated)
-        target_channels_str = os.getenv('TARGET_CHANNELS', '')
+        target_channels_str = os.getenv('TARGET_CHANNELS', 'clothing_jemla')
         self.target_channels = [ch.strip() for ch in target_channels_str.split(',') if ch.strip()]
         
         if not self.api_id or not self.api_hash:
